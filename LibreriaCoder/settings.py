@@ -55,7 +55,7 @@ ROOT_URLCONF = 'LibreriaCoder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\Alex\Desktop\Nueva carpeta\ProyectoFinal-GodoyBorsatoCruzp\templates'],
+        'DIRS': [r'C:\Users\ariel\Desktop\ProyectoFinal-GodoyBorsatoCruzp\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -28,7 +28,7 @@
 *	Crear pagina de **Registrarse**
 *   Crear modelo de **Libro**
 
-    ID|Imagen|Título|Autor|Año|Editorial|Número de paginas|Idioma|Descripción|Precio
+    Título|Imagen|Autor|Fecha lanzamiento|Idioma|Descripción|Precio
 
 *   Crear modelo de **Pedidos**
 

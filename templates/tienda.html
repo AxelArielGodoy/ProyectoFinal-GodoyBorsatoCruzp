@@ -17,7 +17,7 @@
     rel="stylesheet"
   />
   <!-- Core theme CSS (includes Bootstrap)-->
-  <link href={% static 'libreriacoderApp/css/styles.css' %} rel="stylesheet" />
+  <link href={% static 'LibreriaApp/css/styles.css' %} rel="stylesheet" />
 </head>
 <body>
   <!-- Header-->
@@ -57,9 +57,13 @@
             <!-- Product actions-->
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
               <div class="text-center">
-                <a class="btn btn-outline-dark mt-auto" href="#"
-                  >View options</a
+                <a class="btn btn-outline-dark mt-auto" href={% url 'crear_libro' %}
+                  >Crear Libro</a
+                
                 >
+                <li class="nav-item">
+                  <a class="nav-link" href={% url 'crear_libro' %}>crear libro</a>
+              </li>
               </div>
             </div>
           </div>
