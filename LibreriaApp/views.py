@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import redirect, render, HttpResponse
 from .models import Libro
 from LibreriaApp.forms import FormularioLibro
 
@@ -11,7 +11,7 @@ def crear_libro(request):
         
         formulario_libro = FormularioLibro(request.POST)
     
-        if formulario_libro.is_valid:
+        if formulario_libro.is_valid():
             
             informacion = formulario_libro.cleaned_data
             
@@ -25,7 +25,7 @@ def crear_libro(request):
             )
             libro.save()
             
-            return render(request, 'crear_libro.html')
+            return redirect('crear_libro')
         
     else:
         formulario_libro = FormularioLibro()
