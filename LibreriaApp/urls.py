@@ -1,13 +1,12 @@
 from django.urls import path
-from .views import crear_libro, inicio, tienda, blog, contacto, acerca_de, iniciar_sesion, registrarse
+
+from accounts.views import login
+from .views import crear_libro, inicio, blog, contacto, acerca_de
 
 urlpatterns = [
     path('', inicio, name='inicio'),
-    path('tienda/', tienda, name='tienda'),
     path('blog/', blog, name='blog'),
     path('contacto/', contacto, name='contacto'),
     path('acerca_de/', acerca_de, name='acerca_de'),
-    path('iniciar_sesion/', iniciar_sesion, name='iniciar_sesion'),
-    path('registrarse/', registrarse, name='registrarse'),
     path('crear_libro/', crear_libro, name='crear_libro'),
 ]

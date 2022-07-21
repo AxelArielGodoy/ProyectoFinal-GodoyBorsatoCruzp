@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'LibreriaApp',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'LibreriaCoder.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\ariel\Desktop\ProyectoFinal-GodoyBorsatoCruzp\templates'],
+        'DIRS': [r'C:\Users\Natu\ProyectoFinal-GodoyBorsatoCruzp\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

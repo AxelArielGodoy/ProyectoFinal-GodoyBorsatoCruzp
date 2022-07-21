@@ -32,15 +32,8 @@ def crear_libro(request):
     return render(request, 'crear_libro.html', {'form': formulario_libro})
 
 
-def tienda(request):
-    titulo_de_busqueda = request.GET.get('titulo')
-    if titulo_de_busqueda:
-        listado_libros = Libro.objects.filter(titu)
-    return render(request, 'tienda.html')
-
-
 def blog(request):
-    return HttpResponse("Blog")
+    return HttpResponse('blog')
 
 
 def contacto(request):
@@ -49,11 +42,3 @@ def contacto(request):
 
 def acerca_de(request):
     return HttpResponse("Acerca de")
-
-
-def iniciar_sesion(request):
-    return HttpResponse("Iniciar Sesión")
-
-
-def registrarse(request):
-    return HttpResponse("Registrarse")

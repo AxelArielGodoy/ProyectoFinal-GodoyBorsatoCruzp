@@ -11,21 +11,19 @@
 
 ###	Paginas
 *	Inicio
-*	Tienda
 *	Blog
 *   Contacto
 *	Acerca de
-*	Iniciar Sesión
-*	Registrarse
+*	Login
+*	Logout
 
 ###	TODO
 *	Crear pagina de **Inicio**
-*	Crear pagina de **Tienda**
 *	Crear pagina de **Blog**
 *	Crear pagina de **Contacto**
 *	Crear pagina de **Acerca de**
-*	Crear pagina de **Iniciar Sesión**
-*	Crear pagina de **Registrarse**
+*	Crear pagina de **Login**
+*	Crear pagina de **Logout**
 *   Crear modelo de **Libro**
 
     Título|Imagen|Autor|Fecha lanzamiento|Idioma|Descripción|Precio
