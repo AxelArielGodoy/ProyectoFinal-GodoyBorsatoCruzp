@@ -1,0 +1,44 @@
+{% extends 'inicio.html' %}
+
+{%block title%}
+<title>Creación de posts</title>
+{%endblock title%} 
+
+{% block header %}
+
+<h1>Busqueda</h1>
+
+<p>
+    
+    
+    <form action={% url 'buscar_post' %}>
+    
+        {{form}}
+        <button>Buscar</button>
+
+    </form>
+    
+    
+    {% if listado_post %}
+        
+        {%for post in listado_post%}
+        <li><h1>
+            Marca: {{post.titulo}} | Color: {{post.subtitulo}} {{post.contenido}}|</h1>
+            {% comment %} <a href={% url 'editar_auto' auto.id %}>Editar</a>
+            <a href={% url 'eliminar_auto' auto.id %}>Eliminar</a> {% endcomment %}
+        </li>
+        {%endfor%}
+        
+    
+    {% else %}
+        <ul>
+            <li>No se ha encontrado ningún valor.</li>
+        </ul>
+    
+        {% endif %}
+        {% comment %} <a  class="btn btn-primary" href={% url 'crear_auto' %}>Crear Auto</a> {% endcomment %}
+    
+    </p>
+    
+    {% endblock header %}
+</p>
