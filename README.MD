@@ -13,7 +13,7 @@
 *	Inicio
 *	Blog
 *   Contacto
-*	Acerca de
+*	Sobre Nosotros
 *	Login
 *	Logout
 
@@ -21,18 +21,13 @@
 *	Crear pagina de **Inicio**
 *	Crear pagina de **Blog**
 *	Crear pagina de **Contacto**
-*	Crear pagina de **Acerca de**
+*	Crear pagina de **Sobre Nosotros**
 *	Crear pagina de **Login**
 *	Crear pagina de **Logout**
-*   Crear modelo de **Libro**
+*   Crear modelo de **Post**
 
-    Título|Imagen|Autor|Fecha lanzamiento|Idioma|Descripción|Precio
+    Título|Autor|Fecha lanzamiento|Idioma|Descripción|Fecha Creacion|Imagen
 
-*   Crear modelo de **Pedidos**
-
-    ID Pedido|ID Libro|Comprador
-
-*	Funcionalidad: agregar/ver/modificar/eliminar artículo del carrito
 *	Crear roles: administrador/encargado/empleado/usuario y sus respectivos permisos
 *	Funcionalidad: añadir/ver/modificar/borrar artículo de la BD
 *	Funcionalidad: crear/ver/modificar/borrar artículo de la BD

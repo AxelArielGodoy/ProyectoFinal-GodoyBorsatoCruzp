@@ -1,0 +1,30 @@
+{% extends 'inicio.html' %}
+
+{% block contenido %}
+<center>
+<h1>Post</h1>
+    
+<p>
+    <h3>
+    <li>
+        {{post.titulo}}
+    </li>
+    <li>
+        {{post.subtitulo}}
+    </li>
+    <li>
+        {{post.contenido}}
+    </li>
+    <li>
+        {{post.autor}}
+    </li>
+    <li>
+        {{post.fecha_creacion}}
+    </li>
+    </h3>       
+    <a class="btn btn-secondary" href={% url 'crear_post' %}>Crear Post</a>
+    <a class="btn btn-secondary" href={% url 'buscar_post' %}>Volver a la lista</a>
+    <a class="btn btn-secondary" href={% url 'editar_post' post.id %}>Editar</a>
+</p>
+</center>
+{% endblock contenido %}

@@ -1,17 +1,14 @@
 {% extends 'inicio.html' %}
 
-{%block title%}
-<title>Creación de posts</title>
-{%endblock title%} 
 
-{% block header %}
-
+{% block contenido %}
+<center>
 <h1>Busqueda</h1>
 
 <p>
     
     
-    <form action={% url 'buscar_post' %}>
+    <form class="btn btn-secondary" action={% url 'buscar_post' %}>
     
         {{form}}
         <button>Buscar</button>
@@ -22,11 +19,15 @@
     {% if listado_post %}
         
         {%for post in listado_post%}
-        <li><h1>
-            Marca: {{post.titulo}} | Color: {{post.subtitulo}} {{post.contenido}}|</h1>
-            {% comment %} <a href={% url 'editar_auto' auto.id %}>Editar</a>
-            <a href={% url 'eliminar_auto' auto.id %}>Eliminar</a> {% endcomment %}
+        <li>
+            <h5>
+            Titulo: {{post.titulo}} | Subtitulo: {{post.subtitulo}} | Autor: {{post.autor}}|
+            <a class="btn btn-secondary" href={% url 'editar_post' post.id %}>Editar</a>
+            <a class="btn btn-secondary" href={% url 'eliminar_post' post.id %}>Eliminar</a>
+            <a class="btn btn-secondary" href={% url 'ver_mas' post.id %}>Ver mas</a>
+            </h5>
         </li>
+        
         {%endfor%}
         
     
@@ -36,9 +37,9 @@
         </ul>
     
         {% endif %}
-        {% comment %} <a  class="btn btn-primary" href={% url 'crear_auto' %}>Crear Auto</a> {% endcomment %}
+        <a class="btn btn-primary" href={% url 'crear_post' %}>Crear Post</a>
+        <a class="btn btn-primary" href={% url 'buscar_post' %}>Volver a la lista</a>
     
-    </p>
-    
-    {% endblock header %}
 </p>
+</center>
+    {% endblock contenido %}

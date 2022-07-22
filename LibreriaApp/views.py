@@ -5,32 +5,6 @@ from LibreriaApp.forms import BusquedaPost, FormularioPost
 def inicio(request):
     return render(request, 'inicio.html')
 
-# def crear_libro(request):
-    
-#     if request.method == "POST":
-        
-#         formulario_libro = FormularioLibro(request.POST)
-    
-#         if formulario_libro.is_valid():
-            
-#             informacion = formulario_libro.cleaned_data
-            
-#             libro = Libro(
-#                 titulo = informacion['titulo'],
-#                 autor = informacion['autor'],
-#                 fecha_lanzamiento = informacion['fecha_lanzamiento'],
-#                 idioma = informacion['idioma'],
-#                 descripcion = informacion['descripcion'],
-#                 precio = informacion['precio'],
-#             )
-#             libro.save()
-            
-#             return redirect('crear_libro')
-        
-#     else:
-#         formulario_libro = FormularioLibro()
-#     return render(request, 'crear_libro.html', {'form': formulario_libro})
-
 
 def blog(request):
     return HttpResponse('blog')
@@ -40,10 +14,8 @@ def contacto(request):
     return HttpResponse("contacto")
 
 
-def acerca_de(request):
-    return HttpResponse("Acerca de")
-
-
+def sobre_nosotros(request):
+    return render(request, "sobre_nosotros.html")
 
 
 def crear_post(request):
@@ -86,3 +58,36 @@ def buscar_post(request):
     form = BusquedaPost()
     return render(request, "buscar_post.html", {"listado_post": listado_post, "form": form})
 
+
+def editar_post(request, id):
+    post = Post.objects.get(id=id)
+    
+    if request.method == 'POST':
+        form = FormularioPost(request.POST)
+        if form.is_valid():
+            post.titulo = form.cleaned_data.get('titulo')
+            post.subtitulo = form.cleaned_data.get('subtitulo')
+            post.contenido = form.cleaned_data.get('contenido')
+            post.autor = form.cleaned_data.get('autor')
+            post.fecha_creacion = form.cleaned_data.get('fecha_creacion')
+            post.save()
+            
+            return redirect('buscar_post')
+        else:
+            return render(request, "crear_post", {"form": formulario_post, "post": post})
+    
+    formulario_post = FormularioPost(initial={'titulo': post.titulo, 'subtitulo': post.subtitulo, 'contenido': post.contenido, 'autor': post.autor, 'fecha_creacion': post.fecha_creacion})
+    
+    return render(request, "editar_post.html", {"form": formulario_post, "post": post})
+
+
+
+def eliminar_post(request, id):
+    
+    post = Post.objects.get(id=id)
+    post.delete()
+    return redirect('buscar_post')
+
+def ver_mas(request, id):
+    post = Post.objects.get(id=id)
+    return render(request, "ver_mas.html", {"post": post})

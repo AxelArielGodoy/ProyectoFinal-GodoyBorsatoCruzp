@@ -1,0 +1,20 @@
+{% extends 'inicio.html' %}
+
+{% block contenido %}
+<center>
+<h1>Editar Post</h1>
+
+<p>
+  <form action={% url 'editar_post' post.id %} method="post">
+    
+    {% csrf_token %}
+    <table align='center'>{{form.as_table}}</table>
+
+    <br>
+    <button class="btn btn-primary" type="submit">Editar</button>
+    <a class="btn btn-primary" href={% url 'buscar_post' %}>Volver</a>
+  
+  </form>
+</p>
+</center>
+{% endblock contenido %}
