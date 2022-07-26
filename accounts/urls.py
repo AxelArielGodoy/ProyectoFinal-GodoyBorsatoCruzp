@@ -1,12 +1,15 @@
 from django.conf import settings
 from django.urls import path
-from .views import login
+from .views import login, perfil, new_account, editar_perfil
 from django.contrib.auth.views import LogoutView
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('login/', login, name='login'),
+    path('new_account/', new_account, name='new_account'),
     path('logout/', LogoutView.as_view(template_name='accounts/logout.html'), name='logout'),
+    path('perfil/', perfil, name='perfil'),
+    path('perfil/editar', editar_perfil, name='editar_perfil'),
 ]
 
 

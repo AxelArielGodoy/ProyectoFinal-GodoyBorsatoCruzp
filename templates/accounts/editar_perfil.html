@@ -1,0 +1,24 @@
+{% extends 'inicio.html' %}
+
+{% block contenido %}
+<title>Editar Perfil</title>
+
+
+
+<h1>
+    Editando Perfil de {{request.user.username}}
+</h1>
+
+<p>
+    <a href={% url 'perfil' %}>Volver</a>
+</p>
+<p>
+    <form action={% url 'editar_perfil' %} method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        <table>
+            {{form_edit.as_table}}
+        </table>
+        <button>Editar</button>
+    </form>
+</p>
+{% endblock contenido %}

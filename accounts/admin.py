@@ -1,3 +1,4 @@
 from django.contrib import admin
+from accounts.models import MasDatosUsuarios
 
-# Register your models here.
+admin.site.register(MasDatosUsuarios)

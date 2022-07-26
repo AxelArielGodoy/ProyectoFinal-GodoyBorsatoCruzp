@@ -51,8 +51,13 @@
             <li class="nav-item"><a class="nav-link" href={% url 'contacto' %}>Contacto</a></li>
             <li class="nav-item"><a class="nav-link" href={% url 'sobre_nosotros' %}>Sobre Nosotros</a></li>
             {% if request.user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href={% url 'perfil' %}>
+              {% if request.user.masdatosusuarios.avatar %}
+              <img src={{request.user.masdatosusuarios.avatar.url}} alt="" height="30px">
+              {% endif %}
+              {{request.user.username}}
+            </a></li>
             <li class="nav-item"><a class="nav-link" href={% url 'logout' %}>Salir</a></li>
-            <li class="nav-item"><a class="nav-link" href='#'>{{request.user.username}}</a></li>
             {% else %}
             <li class="nav-item"><a class="nav-link" href={% url 'login' %}>Iniciar Sesion</a></li>
             <li class="nav-item"><a class="nav-link" href={% url 'new_account' %}>Registrarse</a></li>

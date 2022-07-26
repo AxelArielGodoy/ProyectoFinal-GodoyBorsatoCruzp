@@ -1,0 +1,30 @@
+{% extends 'inicio.html' %}
+
+{% block contenido %}
+<title>Perfil</title>
+
+
+
+<h1>
+    Perfil Usuario {{request.user.username}}
+</h1>
+
+<p>
+    <ul>
+        <li>Nombre: {{request.user.first_name}}</li>
+        <li>Apellido: {{request.user.last_name}}</li>
+        <li>Email: {{request.user.email}}</li>
+        <li>
+            <p>Avatar:</p>
+            {% if request.user.masdatosusuarios.avatar %}
+            <img src={{request.user.masdatosusuarios.avatar.url}} alt="" height="200px">
+            {% endif %}
+        </li>
+    </ul>
+</p>
+
+<p>
+    <a href={% url 'editar_perfil' %}>Editar Perfil</a>
+</p>
+
+{% endblock contenido %}
