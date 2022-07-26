@@ -3,30 +3,39 @@
 
 {% block contenido %}
 <center>
-<h1>Busqueda</h1>
+<h1>Posteos</h1>
 
 <p>
+    <a class="btn btn-primary" href={% url 'crear_post' %}>Crear Post</a>
+    <a class="btn btn-primary" href={% url 'buscar_post' %}>Volver a la lista</a>
     
-    
-    <form class="btn btn-secondary" action={% url 'buscar_post' %}>
+    <form class="btn btn-secondary" action={% url 'buscar_post' %} enctype="multipart/form-data">
     
         {{form}}
         <button>Buscar</button>
 
     </form>
     
+
     
     {% if listado_post %}
         
         {%for post in listado_post%}
+        <div>
+        <ul>
         <li>
             <h5>
             Titulo: {{post.titulo}} | Subtitulo: {{post.subtitulo}} | Autor: {{post.autor}}|
             <a class="btn btn-secondary" href={% url 'editar_post' post.id %}>Editar</a>
             <a class="btn btn-secondary" href={% url 'eliminar_post' post.id %}>Eliminar</a>
             <a class="btn btn-secondary" href={% url 'ver_mas' post.id %}>Ver mas</a>
+            <ul><li>
+                {% if post.imagen %}
+                <img src="{{ post.imagen.url }}" width=500>
+                {% endif %}
+            </li></ul>
             </h5>
-        </li>
+        </li><br></ul></div>
         
         {%endfor%}
         
@@ -36,10 +45,11 @@
             <li>No se ha encontrado ningún valor.</li>
         </ul>
     
-        {% endif %}
-        <a class="btn btn-primary" href={% url 'crear_post' %}>Crear Post</a>
-        <a class="btn btn-primary" href={% url 'buscar_post' %}>Volver a la lista</a>
-    
+    {% endif %}
+    <a class="btn btn-primary" href={% url 'crear_post' %}>Crear Post</a>
+    <a class="btn btn-primary" href={% url 'buscar_post' %}>Volver a la lista</a>
+    <br><br><br><br>
+
 </p>
-</center>
-    {% endblock contenido %}
+
+{% endblock contenido %}

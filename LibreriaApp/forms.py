@@ -16,7 +16,7 @@ class FormularioPost(forms.Form):
     contenido = RichTextFormField()
     autor = forms.CharField(max_length=30)
     fecha_creacion = forms.IntegerField()
-    # avatar = forms.ImageField(required=False)
+    imagen = forms.ImageField()
 
 
 class BusquedaPost(forms.Form):

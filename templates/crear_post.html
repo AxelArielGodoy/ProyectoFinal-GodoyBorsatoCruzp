@@ -1,20 +1,20 @@
 {% extends 'inicio.html' %}
 
 {% block contenido %}
-<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
-<center><h1>Crea un post</h1></center>
 
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
 
 <p>
 
-    <form action={% url 'crear_post' %} method="post">
+    <form action={% url 'crear_post' %} method="post" enctype="multipart/form-data">
       
       {% csrf_token %}
-      <table align='center'>{{form.as_table}}</table>
+      <table align='center'>{{form.as_table}} {{form.media}}</table>
   
       <center><button class="btn btn-primary" href="#about">Crear</button></center>
       <center><a class="btn btn-primary" href={% url 'buscar_post' %}>Buscar</a></center>
     </form>
+
 </p>
   
 {% endblock contenido %}

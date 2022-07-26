@@ -22,7 +22,7 @@ def crear_post(request):
     
     if request.method == "POST":
         
-        formulario_post = FormularioPost(request.POST)
+        formulario_post = FormularioPost(request.POST, request.FILES)
     
         if formulario_post.is_valid():
             
@@ -34,7 +34,7 @@ def crear_post(request):
                 contenido = informacion['contenido'],
                 autor = informacion['autor'],
                 fecha_creacion = informacion['fecha_creacion'],
-                # imagen = informacion['imagen'],
+                imagen = informacion['imagen'],
             )
             post.save()
             
@@ -63,20 +63,21 @@ def editar_post(request, id):
     post = Post.objects.get(id=id)
     
     if request.method == 'POST':
-        form = FormularioPost(request.POST)
+        form = FormularioPost(request.POST, request.FILES)
         if form.is_valid():
             post.titulo = form.cleaned_data.get('titulo')
             post.subtitulo = form.cleaned_data.get('subtitulo')
             post.contenido = form.cleaned_data.get('contenido')
             post.autor = form.cleaned_data.get('autor')
             post.fecha_creacion = form.cleaned_data.get('fecha_creacion')
+            post.imagen = form.cleaned_data.get('imagen')
             post.save()
             
             return redirect('buscar_post')
         else:
             return render(request, "crear_post", {"form": formulario_post, "post": post})
     
-    formulario_post = FormularioPost(initial={'titulo': post.titulo, 'subtitulo': post.subtitulo, 'contenido': post.contenido, 'autor': post.autor, 'fecha_creacion': post.fecha_creacion})
+    formulario_post = FormularioPost(initial={'titulo': post.titulo, 'subtitulo': post.subtitulo, 'contenido': post.contenido, 'autor': post.autor, 'fecha_creacion': post.fecha_creacion, 'imagen': post.imagen})
     
     return render(request, "editar_post.html", {"form": formulario_post, "post": post})
 

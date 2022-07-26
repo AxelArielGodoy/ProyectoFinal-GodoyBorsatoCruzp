@@ -21,6 +21,13 @@
     <li>
         {{post.fecha_creacion}}
     </li>
+    <li>
+        {% if post.imagen %}
+        <img src="{{ post.imagen.url }}">
+        {% endif %}
+    </li>
+
+
     </h3>       
     <a class="btn btn-secondary" href={% url 'crear_post' %}>Crear Post</a>
     <a class="btn btn-secondary" href={% url 'buscar_post' %}>Volver a la lista</a>

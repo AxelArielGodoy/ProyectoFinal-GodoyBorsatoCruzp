@@ -8,6 +8,7 @@ class Post(models.Model):
     contenido = RichTextField()
     autor = models.CharField(max_length=30)
     fecha_creacion = models.IntegerField()
+    imagen = models.ImageField(upload_to='images/', null=True, blank=True)
     
     def __str__(self):
         return f'El titulo es: {self.titulo}'

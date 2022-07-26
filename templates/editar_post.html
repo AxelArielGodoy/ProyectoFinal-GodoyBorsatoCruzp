@@ -5,10 +5,10 @@
 <h1>Editar Post</h1>
 
 <p>
-  <form action={% url 'editar_post' post.id %} method="post">
+  <form action={% url 'editar_post' post.id %} method="post" enctype="multipart/form-data">
     
     {% csrf_token %}
-    <table align='center'>{{form.as_table}}</table>
+    <table align='center'>{{form.as_table}}{{form.media}}</table>
 
     <br>
     <button class="btn btn-primary" type="submit">Editar</button>
