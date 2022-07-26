@@ -1,5 +1,6 @@
 from django import forms
 from ckeditor.fields import RichTextFormField
+from pkg_resources import Requirement
 
 class FormularioLibro(forms.Form):
     titulo = forms.CharField(max_length=30)
@@ -16,7 +17,7 @@ class FormularioPost(forms.Form):
     contenido = RichTextFormField()
     autor = forms.CharField(max_length=30)
     fecha_creacion = forms.IntegerField()
-    imagen = forms.ImageField()
+    imagen = forms.ImageField(required=False)
 
 
 class BusquedaPost(forms.Form):

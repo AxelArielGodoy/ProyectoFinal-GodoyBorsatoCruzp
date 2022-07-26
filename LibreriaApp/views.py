@@ -47,7 +47,7 @@ def crear_post(request):
     return render(request, 'crear_post.html', {'form': formulario_post})
 
 
-@login_required
+# @login_required
 def buscar_post(request):
 
     titulo_de_busqueda = request.GET.get("titulo")
@@ -65,23 +65,26 @@ def editar_post(request, id):
     post = Post.objects.get(id=id)
     
     if request.method == 'POST':
-        form = FormularioPost(request.POST, request.FILES)
-        if form.is_valid():
-            post.titulo = form.cleaned_data.get('titulo')
-            post.subtitulo = form.cleaned_data.get('subtitulo')
-            post.contenido = form.cleaned_data.get('contenido')
-            post.autor = form.cleaned_data.get('autor')
-            post.fecha_creacion = form.cleaned_data.get('fecha_creacion')
-            post.imagen = form.cleaned_data.get('imagen')
+        
+        edit_form = FormularioPost(request.POST, request.FILES)
+        
+        if edit_form.is_valid():
+            form = edit_form.cleaned_data
+            post.titulo = form.get('titulo') if form.get('titulo') else post.titulo
+            post.subtitulo = form.get('subtitulo') if form.get('subtitulo') else post.subtitulo
+            post.contenido = form.get('contenido') if form.get('contenido') else post.contenido
+            post.autor = form.get('autor') if form.get('autor') else post.autor
+            post.fecha_creacion = form.get('fecha_creacion') if form.get('fecha_creacion') else post.fecha_creacion
+            post.imagen = form.get('imagen') if form.get('imagen') else post.imagen
             post.save()
             
             return redirect('buscar_post')
         else:
-            return render(request, "crear_post", {"form": formulario_post, "post": post})
+            return render(request, "editar_post.html", {"form": form, "post": post})
     
-    formulario_post = FormularioPost(initial={'titulo': post.titulo, 'subtitulo': post.subtitulo, 'contenido': post.contenido, 'autor': post.autor, 'fecha_creacion': post.fecha_creacion, 'imagen': post.imagen})
+    form = FormularioPost(initial={'titulo': post.titulo, 'subtitulo': post.subtitulo, 'contenido': post.contenido, 'autor': post.autor, 'fecha_creacion': post.fecha_creacion, 'imagen': post.imagen})
     
-    return render(request, "editar_post.html", {"form": formulario_post, "post": post})
+    return render(request, "editar_post.html", {"form": form, "post": post})
 
 
 @login_required
