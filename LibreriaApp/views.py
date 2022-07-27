@@ -12,10 +12,6 @@ def blog(request):
     return HttpResponse('blog')
 
 
-def contacto(request):
-    return HttpResponse("contacto")
-
-
 def sobre_nosotros(request):
     return render(request, "sobre_nosotros.html")
 

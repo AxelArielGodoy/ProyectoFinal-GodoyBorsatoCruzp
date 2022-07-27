@@ -12,17 +12,17 @@
 ###	Paginas
 *	Inicio
 *	Blog
-*   Contacto
 *	Sobre Nosotros
 *	Login
+*   Registrarse
 *	Logout
 
 ###	TODO
 *	Crear pagina de **Inicio**
 *	Crear pagina de **Blog**
-*	Crear pagina de **Contacto**
 *	Crear pagina de **Sobre Nosotros**
 *	Crear pagina de **Login**
+*	Crear pagina de **Registro**
 *	Crear pagina de **Logout**
 *   Crear modelo de **Post**
 

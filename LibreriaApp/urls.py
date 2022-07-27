@@ -1,13 +1,12 @@
 from django.urls import path
 
 from accounts.views import login, new_account
-from .views import eliminar_post, inicio,crear_post, contacto, buscar_post, editar_post, sobre_nosotros, ver_mas
+from .views import eliminar_post, inicio,crear_post, buscar_post, editar_post, sobre_nosotros, ver_mas
 
 
 urlpatterns = [
     path('', inicio, name='inicio'),
     path('blog/', crear_post, name='crear_post'),
-    path('contacto/', contacto, name='contacto'),
     path('sobre_nosotros/', sobre_nosotros, name='sobre_nosotros'),
     path('loggin', login, name='login'),
     path('new_account/', new_account, name='new_account'),
