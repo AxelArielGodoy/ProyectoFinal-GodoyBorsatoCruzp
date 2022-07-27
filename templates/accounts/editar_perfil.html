@@ -3,15 +3,10 @@
 {% block contenido %}
 <title>Editar Perfil</title>
 
-
-
 <h1>
     Editando Perfil de {{request.user.username}}
 </h1>
 
-<p>
-    <a href={% url 'perfil' %}>Volver</a>
-</p>
 <p>
     <form action={% url 'editar_perfil' %} method="post" enctype='multipart/form-data'>
         {% csrf_token %}
@@ -19,6 +14,9 @@
             {{form_edit.as_table}}
         </table>
         <button>Editar</button>
+    <p>
+     <a href={% url 'cambiar_contrase' %}>Cambiar Contraseña</a>
+    </p>
     </form>
 </p>
 {% endblock contenido %}
