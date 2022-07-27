@@ -2,9 +2,9 @@
 
 
 ##	INTEGRANTES
-*	Alexis Borsato
 *	Axel Godoy
 *	Victoria Cruz Pintor
+*	Alexis Borsato
 
 ##	LIBRERIA CODER
 

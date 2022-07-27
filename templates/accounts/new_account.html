@@ -2,16 +2,10 @@
 
 {% block contenido %}
 <title>Registrarse</title>
-
-
-}
 <h1>
     Registrarse
 </h1>
 
-<p>
-    <a href={% url 'inicio' %}>Volver</a>
-</p>
 <p>
     <form action={% url 'new_account' %} method="post">
         {% csrf_token %}
